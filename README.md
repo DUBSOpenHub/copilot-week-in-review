@@ -22,10 +22,18 @@ curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/
 
 The agent then asks you two quick questions:
 
-1. **Source** — paste your own notes, pull from your GitHub activity, or both?
+1. **Source** — paste your own notes, pull from your GitHub activity, both, or continue from your last weekly update?
 2. **Audience** — your manager (formal, outcomes), your team (collaborative), or just yourself (raw log)?
 
 Answer those, and you get a polished update back. That's it.
+
+> ⚡ **Shortcut:** include both answers in your invocation and the agent skips the questions entirely:
+>
+> ```
+> @week-in-review pull from my github for my manager
+> ```
+>
+> One line in, manager-ready update out.
 
 ---
 
@@ -38,7 +46,7 @@ Answer those, and you get a polished update back. That's it.
 | 30 seconds of typing | 0 seconds of writing |
 | Notes only you understand | Markdown your team can ship from |
 
-- 🎯 **Two-question intake** — *source* (notes / GitHub pull / both) and *audience* (manager / team / yourself), so the same agent fits every weekly ritual
+- 🎯 **Two-question intake** — *source* (notes / GitHub pull / both / continue from last update) and *audience* (manager / team / yourself), so the same agent fits every weekly ritual. Both questions come in **one message**, or get skipped entirely if you put hints in your invocation.
 - 🐙 **Auto-pulls from GitHub** — uses `gh` to gather your last 7 days of PRs, reviews, issues, and comments across your repos. Skips the noise (typo fixes, bot bumps). Falls back to notes mode gracefully if `gh` isn't installed or logged in.
 - 🔁 **Continue from your last update** — fourth source option that finds your previous weekly issue and diffs from there, so you never double-report wins
 - 🎚️ **Audience-aware tone** — *Manager* leads with outcomes & impact; *Team* highlights handoffs & "what's next"; *Yourself* keeps your voice and small wins
@@ -59,7 +67,7 @@ Answer those, and you get a polished update back. That's it.
 > Audience? My manager
 ```
 
-…and the agent runs `gh search` against your last 7 days, groups your PRs/issues by workstream, filters out the noise, and tunes the language for leadership. **Three lines in, a manager-ready update out — no notes required.**
+…and the agent runs `gh search` against your last 7 days, groups your PRs/issues by workstream, filters out the noise, and tunes the language for leadership. **One line in, a manager-ready update out — no notes required, no follow-up questions.**
 
 <details>
 <summary>✍️ Prefer pasting your own notes? Click for the notes-mode example</summary>
@@ -163,7 +171,7 @@ copilot
 > @week-in-review
 ```
 
-Either way, the agent asks two quick questions, then takes your notes or pulls from GitHub:
+Either way, the agent asks two quick questions in a single message — *or* skips them entirely if you include hints in your invocation (e.g. `@week-in-review continue from my last update, for my team`):
 
 **With your own notes:**
 ```

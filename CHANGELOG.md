@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Docs refreshed to match the verified v1.1 behavior.** Added the
+  hint-skip shortcut (`@week-in-review pull from my github for my
+  manager`) to the README "30-second start" + "Use it" sections,
+  AGENTS.md agent description, and both install scripts'
+  post-install hints. The 'three lines in' / 'two quick questions'
+  framing was leftover from the staged-turn intake; replaced with
+  the one-message-or-skipped reality. AGENTS.md overview no longer
+  says "Copilot CLI agent" — works in app or CLI.
+
+### Changed (earlier in [Unreleased])
+
 - **Body length cap relaxed for GitHub-pull mode.** Was 250 words across
   the board, which overflowed silently on busy GitHub weeks (test run
   hit ~330 words). Now: 400 words when pulling from GitHub, still 250

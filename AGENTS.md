@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repo ships a single GitHub Copilot CLI agent — **week-in-review** — that turns messy weekly notes into a polished, GitHub-issue-ready status update. That's the whole project: one agent file plus an installer.
+This repo ships a single GitHub Copilot agent — **week-in-review** — that turns messy weekly notes or raw GitHub activity into a polished, GitHub-issue-ready status update. Works in the GitHub Copilot app *or* the Copilot CLI. That's the whole project: one agent file plus an installer.
 
 ## Available Agents
 
@@ -13,7 +13,7 @@ This repo ships a single GitHub Copilot CLI agent — **week-in-review** — tha
   ```
   @week-in-review
   ```
-  The agent opens with a two-question intake — *source* (paste notes / pull from GitHub / both / continue from my last update) and *audience* (manager / team / yourself) — then drafts the update. Follow up with tweaks: *"make it more casual"*, *"punchier"*, *"switch audience to team"*, *"open this as an issue in `myorg/team-updates`"*.
+  The agent opens with a two-question intake — *source* (paste notes / pull from GitHub / both / continue from my last update) and *audience* (manager / team / yourself) — delivered in **one combined message**, or **skipped entirely** when both are clear from your invocation (e.g. `@week-in-review pull from my github for my manager`). Follow up with tweaks: *"make it more casual"*, *"punchier"*, *"switch audience to team"*, *"open this as an issue in `myorg/team-updates`"*.
 - **Model**: Default model in your Copilot session.
 - **Location**: `agents/week-in-review.agent.md` → installs to `~/.copilot/agents/week-in-review.agent.md` (read by both the app and the CLI).
 - **Tools used**:
