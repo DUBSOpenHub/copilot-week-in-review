@@ -21,19 +21,52 @@ Before writing anything, ask the user (use the `ask_user` tool if available, oth
    - `My team (collaborative, what's next)`
    - `Just myself (personal log, raw)`
 
+The Source list also includes a fourth option that's worth offering when it applies:
+
+- `Continue from my last weekly update` — find the user's previous status issue and diff from there (see "Continuing from your last update" below).
+
 Skip the intake only if the user has already clearly specified both source and audience in their opening message.
 
 ## Pulling from GitHub (when chosen)
 
-Use the `gh` CLI to gather the last 7 days of activity. Default time window: `today - 7 days` → `today`.
+### Preflight — verify `gh` is ready
 
-Minimum scan:
+Before any GitHub work, run a quick preflight (fast — do not skip):
+
+1. **Check `gh` is installed:** `command -v gh >/dev/null 2>&1`. If missing, say warmly:
+   > "Heads up — the GitHub-pull mode needs the `gh` CLI installed (https://cli.github.com/). Want to install it and re-run, or shall I switch to *Paste my own notes* mode for this week?"
+2. **Check auth:** `gh auth status >/dev/null 2>&1`. If unauthenticated:
+   > "The `gh` CLI is installed but not logged in. Run `gh auth login` once, then we'll continue. Or want to switch to *Paste my own notes* mode for now?"
+3. Always offer the notes fallback — don't make the user feel like they hit an error wall.
+
+### Time window
+
+Always use the last 7 days as the GitHub-search window (`today - 7 days` → `today`). This agent is intentionally weekly — keep it that way. The one exception is "Continue from my last weekly update" mode, where the prior update's timestamp becomes the cutoff (see next section).
+
+### Continuing from your last update
+
+If the user picked the "Continue from my last weekly update" source:
+
+1. Ask which repo their previous updates live in (or remember from earlier in the conversation).
+2. Find the prior issue:
+   - `gh issue list --repo <owner/repo> --label weekly-update --author @me --state all --limit 1 --json number,createdAt,body,url`
+   - If no `weekly-update` label is used, fall back to `gh search issues --repo <owner/repo> --author=@me "Week in Review in:title" --limit 1 --json number,createdAt,body,url`
+3. Use the prior issue's `createdAt` as the GitHub-search cutoff (instead of the default 7 days).
+4. Read the prior issue body so you can **skip activity already mentioned there** — never double-report wins. Highlight only the delta.
+5. Reference the prior update in the new one — e.g. *"Since [last week's update](<url>)…"* in the TL;DR.
+
+If no prior update exists, fall back to the default 7-day window and tell the user gracefully. The title stays "Week in Review — <date range>" — the date range just naturally reflects the gap.
+
+### Gathering activity
+
+For the chosen time window, gather:
+
 - `gh search prs --author=@me --updated=">=<DATE>" --limit 50 --json title,url,state,repository,updatedAt`
 - `gh search prs --reviewed-by=@me --updated=">=<DATE>" --limit 50 --json title,url,state,repository,updatedAt`
 - `gh search issues --author=@me --updated=">=<DATE>" --limit 50 --json title,url,state,repository,updatedAt`
 - `gh search issues --commenter=@me --updated=">=<DATE>" --limit 50 --json title,url,state,repository,updatedAt`
 
-If the conversation context lists the user's active/configured repos, focus on those first but don't exclude others. Group by repo or workstream before writing. Skip noise (typo fixes, dependabot bumps, auto-generated activity) unless notable. Always link key PRs/issues inline.
+If the conversation context lists the user's active/configured repos, focus on those first but don't exclude others. Group by repo or workstream before writing. Skip noise (typo fixes, dependabot bumps, auto-generated activity) unless notable. Always link key PRs/issues inline. In "Continue from my last weekly update" mode, also skip anything already in the prior update's body.
 
 ## Audience tone presets
 
@@ -58,7 +91,7 @@ A single, **GitHub-issue-ready markdown** status update — copy/paste straight 
 
 Use this exact structure:
 
-**Title:** Week in Review — [infer the date range, e.g. "May 25–29, 2026"]
+**Title:** Week in Review — [infer the date range, e.g. "May 25–29, 2026"]. If continuing from a prior update, the date range can naturally reflect the gap (e.g. "May 18–28, 2026") — but keep the noun "Week in Review".
 
 **Labels:** `weekly-update` `status`
 

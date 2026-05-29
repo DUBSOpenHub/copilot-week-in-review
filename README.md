@@ -1,8 +1,17 @@
 # 📅 Copilot Week in Review
 
-> **Copilot Week in Review is a GitHub Copilot agent that turns your week — whether messy notes or raw GitHub activity — into a polished, audience-tuned, GitHub-issue-ready status update in seconds.**
+> **Copilot Week in Review is a GitHub Copilot agent that turns your week — whether messy notes or raw GitHub activity — into a polished, audience-tuned, GitHub-issue-ready status update in seconds. Works in the GitHub Copilot app *or* the Copilot CLI.**
 
 *Built using the [GitHub Copilot app](https://github.com/features/copilot) — chat, refine, ship.*
+
+🌐 **[See the live demo site →](https://dubsopenhub.github.io/copilot-week-in-review/)**
+
+<!--
+  TODO: Drop a 5-second screen-recording GIF of the GitHub-pull flow right above this comment,
+  once it's recorded. Suggested markup:
+    <p align="center"><img src="docs/demo.gif" alt="Week in Review — pulling from GitHub in 5s" width="720"></p>
+  Tracked in: https://github.com/DUBSOpenHub/copilot-week-in-review/issues/2
+-->
 
 ---
 
@@ -14,7 +23,7 @@
 curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/main/quickstart.sh | bash
 ```
 
-**2. Use it** — in any GitHub Copilot CLI session, type:
+**2. Use it** — in either the **GitHub Copilot app** *or* a **Copilot CLI** session, type:
 
 ```
 @week-in-review
@@ -39,27 +48,19 @@ Answer those, and you get a polished update back. That's it.
 | Notes only you understand | Markdown your team can ship from |
 
 - 🎯 **Two-question intake** — *source* (notes / GitHub pull / both) and *audience* (boss / team / yourself), so the same agent fits every weekly ritual
-- 🐙 **Auto-pulls from GitHub** — uses `gh` to gather your last 7 days of PRs, reviews, issues, and comments across your repos. Skips the noise (typo fixes, bot bumps).
+- 🐙 **Auto-pulls from GitHub** — uses `gh` to gather your last 7 days of PRs, reviews, issues, and comments across your repos. Skips the noise (typo fixes, bot bumps). Falls back to notes mode gracefully if `gh` isn't installed or logged in.
+- 🔁 **Continue from your last update** — fourth source option that finds your previous weekly issue and diffs from there, so you never double-report wins
 - 🎚️ **Audience-aware tone** — *Boss* leads with outcomes & impact; *Team* highlights handoffs & "what's next"; *Yourself* keeps your voice and small wins
 - 📌 **GitHub-issue-ready by default** — `##` headings render, `- [x]` becomes clickable checkboxes your team can tick off as work ships
 - 🪶 **Tiny footprint** — one agent file, one installer, no servers, no config, no API keys
-- 🪄 **No repo required** — runs from any GitHub Copilot CLI session, anywhere
+- 🪄 **No repo required** — runs in the GitHub Copilot app *or* any Copilot CLI session, anywhere
 - 🔁 **Conversational refinement** — ask for "more casual", "punchier", or "open it as an issue in `myorg/updates`"
 
 ---
 
 ## 👀 See it in action
 
-### Path A — ✍️ You paste your own notes
-
-```
-shipped checkout v2 behind a feature flag, fixed two flaky login tests,
-reviewed 6 PRs, started API rate-limit design doc, oncall starts monday
-```
-
-*(Pair this with audience: **team** for the example below.)*
-
-### Path B — 🐙 You pull from GitHub instead
+### 🐙 The hero shot — pulling from GitHub (no typing required)
 
 ```
 @week-in-review
@@ -67,9 +68,25 @@ reviewed 6 PRs, started API rate-limit design doc, oncall starts monday
 > Audience? My boss
 ```
 
-…and the agent runs `gh search` against your last 7 days, groups your PRs/issues by workstream, and tunes the language for leadership. No typing needed.
+…and the agent runs `gh search` against your last 7 days, groups your PRs/issues by workstream, filters out the noise, and tunes the language for leadership. **Three lines in, a boss-ready update out — no notes required.**
 
-### 📬 You get this back — ready to paste into a GitHub issue
+<details>
+<summary>✍️ Prefer pasting your own notes? Click for the notes-mode example</summary>
+
+```
+@week-in-review
+> Source? Paste my own notes
+> Audience? My team
+
+shipped checkout v2 behind a feature flag, fixed two flaky login tests,
+reviewed 6 PRs, started API rate-limit design doc, oncall starts monday
+```
+
+Same polished output, with your wording and tone preserved.
+
+</details>
+
+### 📬 Either way, you get this back — ready to paste into a GitHub issue
 
 **Title:** Week in Review — Mar 17–21, 2026
 
@@ -111,7 +128,7 @@ curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/
 
 That's it. No git clone, no config, no API keys.
 
-Then in any Copilot CLI session: `@week-in-review`
+Then in the **GitHub Copilot app** or any **Copilot CLI** session: `@week-in-review`
 
 <details>
 <summary>Other install options</summary>
@@ -131,20 +148,31 @@ cd copilot-week-in-review && ./install.sh
 
 </details>
 
-**Requirements:** GitHub Copilot CLI · active [Copilot subscription](https://github.com/features/copilot) · macOS, Linux, or WSL. The optional *"pull from my GitHub"* mode needs the [`gh` CLI](https://cli.github.com/) authenticated as you (`gh auth login`).
+**Requirements:** GitHub Copilot (app or CLI) · active [Copilot subscription](https://github.com/features/copilot) · macOS, Linux, or WSL. The optional *"pull from my GitHub"* mode needs the [`gh` CLI](https://cli.github.com/) authenticated as you (`gh auth login`); if it's missing, the agent will detect that and offer to fall back to notes mode.
 **Privacy:** Your notes stay in your Copilot session. When you pick the *"pull from my GitHub"* mode, the agent runs `gh` locally as you — nothing leaves your machine except the GitHub API calls `gh` already makes on your behalf. No telemetry, no analytics.
 
 ---
 
 ## 🧑‍💻 Use it
 
-From any GitHub Copilot CLI session — **no repo required**:
+Works the same way in either surface — **no repo required**:
+
+### In the GitHub Copilot app
+
+Open Copilot. Type:
 
 ```
 @week-in-review
 ```
 
-The agent asks two quick questions, then either takes your notes or pulls from GitHub:
+### In the Copilot CLI
+
+```
+copilot
+> @week-in-review
+```
+
+Either way, the agent asks two quick questions, then takes your notes or pulls from GitHub:
 
 **With your own notes:**
 ```
@@ -159,6 +187,12 @@ ran the design review, fixed two flaky tests, finished the Q3 plan draft,
 ```
 > Source? Pull from my GitHub activity
 > Audience? My boss
+```
+
+**Continuing from your last update (no double-reporting):**
+```
+> Source? Continue from my last weekly update
+> Audience? My team
 ```
 
 You'll get a polished, issue-ready update back. Then:
@@ -189,15 +223,20 @@ If you want to remix this agent for your own team — change the sections, the t
 ```
 copilot-week-in-review/
 ├── agents/
-│   └── week-in-review.agent.md   ← the agent (Copilot CLI format, invoke as @week-in-review)
+│   └── week-in-review.agent.md   ← the agent (Copilot agent format, invoke as @week-in-review in the app or CLI)
+├── docs/
+│   ├── index.html                ← landing page (https://dubsopenhub.github.io/copilot-week-in-review/)
+│   └── style.css
 ├── quickstart.sh                 ← one-click curl|bash installer
 ├── install.sh                    ← local installer (for git clone users)
+├── AGENTS.md                     ← agent reference / design principles
 ├── CONTRIBUTING.md
+├── SECURITY.md
 ├── LICENSE                       ← MIT
 └── README.md
 ```
 
-That's the whole project. One agent file, two installers.
+That's the whole project. One agent file, one landing page, two installers.
 
 ---
 

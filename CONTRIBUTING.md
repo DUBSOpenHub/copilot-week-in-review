@@ -4,9 +4,11 @@ Thanks for your interest! This is a tiny project — one agent file plus an inst
 
 ## What lives where
 
-- `agents/week-in-review.agent.md` — the agent itself (Copilot CLI agent format: YAML frontmatter + markdown instructions).
-- `install.sh` — copies the agent into `~/.copilot/agents/`.
+- `agents/week-in-review.agent.md` — the agent itself (Copilot agent format: YAML frontmatter + markdown instructions). Used by both the GitHub Copilot app and the Copilot CLI.
+- `docs/index.html` + `docs/style.css` — the landing page published to [dubsopenhub.github.io/copilot-week-in-review](https://dubsopenhub.github.io/copilot-week-in-review/).
+- `install.sh` / `quickstart.sh` — copy the agent into `~/.copilot/agents/`.
 - `README.md` — install instructions, examples, the story behind the project.
+- `AGENTS.md` — agent reference, design principles, tool usage.
 
 ## Making a change
 
@@ -19,7 +21,7 @@ Thanks for your interest! This is a tiny project — one agent file plus an inst
 
 The agent prompt should stay:
 
-- **Short.** Under ~120 lines. Long prompts dilute attention.
+- **Short.** Under ~180 lines. Long prompts dilute attention.
 - **Concrete.** Show the exact output structure, don't describe it abstractly.
 - **Issue-ready by default.** Output must be GitHub-flavored markdown that pastes cleanly into an issue body.
 - **Warm but sharp.** It's a writing partner, not a corporate template.

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📅 Copilot Week in Review — your week, written for you</title>
+  <meta name="description" content="A GitHub Copilot agent that turns messy weekly notes or raw GitHub activity into a polished, audience-tuned, GitHub-issue-ready status update. In the GitHub Copilot app or the CLI." />
+  <meta property="og:title" content="📅 Copilot Week in Review" />
+  <meta property="og:description" content="Your week, written for you. A GitHub Copilot agent that turns messy notes or GitHub activity into a polished status update — in the Copilot app or CLI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dubsopenhub.github.io/copilot-week-in-review/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📅%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="brand" href="#top">📅 <span>week in review</span></a>
+  <div class="navlinks">
+    <a href="#value">What you get</a>
+    <a href="#demo">See it work</a>
+    <a href="#install">Install</a>
+    <a class="ghbtn" href="https://github.com/DUBSOpenHub/copilot-week-in-review" target="_blank" rel="noopener">GitHub →</a>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="hero-inner">
+    <p class="kicker">A GitHub Copilot agent · for the <strong>Copilot app</strong> or the <strong>CLI</strong></p>
+    <h1>
+      Your week,<br />
+      <span class="accent">written for you<span class="dot">.</span></span>
+    </h1>
+    <p class="lede">
+      Turn messy notes <em>or</em> raw GitHub activity into a polished,
+      audience-tuned, GitHub-issue-ready status update in seconds.
+      Two questions, zero blank-page panic.
+    </p>
+
+    <div class="install-cta">
+      <code id="install-cmd">curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/main/quickstart.sh | bash</code>
+      <button class="copy" type="button" data-target="install-cmd" aria-label="Copy install command">Copy</button>
+    </div>
+    <p class="cta-sub">
+      Then in the GitHub Copilot app or the CLI: <code>@week-in-review</code>
+    </p>
+
+    <div class="badges">
+      <span>🪶 One agent file</span>
+      <span>🔌 No API keys</span>
+      <span>🐙 Reads your GitHub via <code>gh</code></span>
+      <span>📜 MIT</span>
+    </div>
+  </div>
+</header>
+
+<section id="value" class="value">
+  <h2>What you actually get</h2>
+  <p class="section-lede">Most weekly-update tools make you type the input. This one skips the typing.</p>
+
+  <div class="cards">
+    <article class="card">
+      <div class="icon">🎯</div>
+      <h3>Two-question intake</h3>
+      <p>The agent asks you <strong>Source</strong> (notes / GitHub pull / both) and <strong>Audience</strong> (boss / team / yourself). That's it. No flags, no config.</p>
+    </article>
+
+    <article class="card">
+      <div class="icon">🐙</div>
+      <h3>Auto-pulls from GitHub</h3>
+      <p>Pick "pull from my GitHub" and the agent uses <code>gh</code> to gather your last 7 days of PRs, reviews, issues, and comments — grouped by workstream, noise filtered out.</p>
+    </article>
+
+    <article class="card">
+      <div class="icon">🎚️</div>
+      <h3>Audience-aware tone</h3>
+      <p><strong>Boss</strong> leads with outcomes &amp; impact. <strong>Team</strong> highlights handoffs &amp; what's next. <strong>Yourself</strong> keeps your voice &amp; small wins.</p>
+    </article>
+
+    <article class="card">
+      <div class="icon">✅</div>
+      <h3>Issue-ready output</h3>
+      <p>GitHub-flavored markdown with <code>- [x]</code> checkboxes your team can <em>click</em> as work ships. Paste it straight into a GitHub issue, Slack, or email.</p>
+    </article>
+
+    <article class="card">
+      <div class="icon">🪄</div>
+      <h3>No repo required</h3>
+      <p>Runs in any GitHub Copilot app session or Copilot CLI session. No setup, no cloned project, no boilerplate. Just type <code>@week-in-review</code>.</p>
+    </article>
+
+    <article class="card">
+      <div class="icon">🔁</div>
+      <h3>Conversational refinement</h3>
+      <p>Ask for "more casual," "punchier," "switch audience to team," or "open it as an issue in <code>myorg/updates</code>." Iterate in plain English.</p>
+    </article>
+  </div>
+</section>
+
+<section id="demo" class="demo">
+  <h2>See it work</h2>
+  <p class="section-lede">A real flow — three lines in, a boss-ready update out.</p>
+
+  <div class="demo-grid">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="terminal-title">GitHub Copilot — @week-in-review</span>
+      </div>
+      <pre class="terminal-body"><span class="prompt">you</span>  @week-in-review
+<span class="reply">agent</span>  How should I build this week's review?
+        <span class="choice">› Pull from my GitHub activity</span>
+<span class="reply">agent</span>  Who's the audience?
+        <span class="choice">› My boss</span>
+<span class="reply">agent</span>  <span class="muted">running `gh search` for the last 7 days…</span>
+        <span class="muted">found 12 PRs, 5 reviews, 8 issues. grouping by workstream…</span>
+        <span class="muted">tuning tone for leadership…</span>
+        <span class="ok">✓ done — pasting below ↓</span></pre>
+    </div>
+
+    <div class="output">
+      <div class="output-bar">
+        <span class="output-title">issue body — ready to paste</span>
+        <span class="output-meta">title · labels · markdown</span>
+      </div>
+      <div class="output-body">
+        <p class="output-title-line"><strong>Title:</strong> Week in Review — May 21–28, 2026</p>
+        <p class="output-labels"><strong>Labels:</strong> <code>weekly-update</code> <code>status</code></p>
+        <hr />
+        <h4>TL;DR</h4>
+        <p>Closed out the SOSS Fund Session 1 cohort and shipped the 2026 Maintainer Amplification program — both clear leadership wins ahead of the next funder cycle.</p>
+        <h4>✅ Shipped this week</h4>
+        <ul class="checklist">
+          <li><span class="check">☑</span> <strong>Session 1 12-month check-in</strong> — formally retired.</li>
+          <li><span class="check">☑</span> <strong>Maintainer Amplification program</strong> — pilot → repeatable model.</li>
+          <li><span class="check">☑</span> <strong>Azure credit remediation</strong> — unblocks Q3 maintainer spend.</li>
+        </ul>
+        <h4>🚧 In progress</h4>
+        <ul class="checklist">
+          <li><span class="check">☐</span> <strong>Metrics ↔ funder priorities</strong> — framework due before next funder update.</li>
+        </ul>
+        <h4>🔭 Next week</h4>
+        <ul class="checklist">
+          <li><span class="check">☐</span> Land the metrics alignment doc.</li>
+          <li><span class="check">☐</span> Finalize OpenClaw Build assets.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p class="demo-footnote">
+    Want notes instead? Pick <em>"Paste my own notes"</em> in the intake and dump whatever you've got — bullets, brain dump, raw PR titles, meeting fragments. Same polished output.
+  </p>
+</section>
+
+<section id="install" class="install">
+  <h2>Install in 30 seconds</h2>
+
+  <ol class="steps">
+    <li>
+      <p class="step-label">1 · Install the agent</p>
+      <div class="install-cta inline">
+        <code id="install-cmd-2">curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/main/quickstart.sh | bash</code>
+        <button class="copy" type="button" data-target="install-cmd-2" aria-label="Copy install command">Copy</button>
+      </div>
+      <p class="step-help">Drops one file into <code>~/.copilot/agents/</code>. No git clone, no config, no API keys.</p>
+    </li>
+    <li>
+      <p class="step-label">2 · Use it</p>
+      <p>In either the <strong>GitHub Copilot app</strong> or a <strong>Copilot CLI</strong> session, type:</p>
+      <div class="install-cta inline">
+        <code>@week-in-review</code>
+      </div>
+      <p class="step-help">Answer the two intake questions. Done.</p>
+    </li>
+  </ol>
+
+  <details class="other-install">
+    <summary>Other install options</summary>
+    <p><strong>Via the Copilot CLI:</strong></p>
+    <pre><code>/agents add DUBSOpenHub/copilot-week-in-review</code></pre>
+    <p><strong>Clone + install (for remixing):</strong></p>
+    <pre><code>git clone https://github.com/DUBSOpenHub/copilot-week-in-review.git
+cd copilot-week-in-review &amp;&amp; ./install.sh</code></pre>
+  </details>
+
+  <p class="reqs">
+    <strong>Requirements:</strong> GitHub Copilot (<a href="https://github.com/features/copilot">subscription</a>) · macOS, Linux, or WSL · the <a href="https://cli.github.com/"><code>gh</code> CLI</a> if you want the "pull from GitHub" mode (run <code>gh auth login</code> once).
+  </p>
+</section>
+
+<section class="privacy">
+  <h2>🔒 Privacy</h2>
+  <p>
+    Your notes stay in your Copilot session. When you pick the <em>"pull from GitHub"</em> mode, the agent runs <code>gh</code> locally as you — nothing leaves your machine except the GitHub API calls <code>gh</code> already makes on your behalf. No telemetry, no analytics, no third parties.
+  </p>
+  <p class="privacy-meta">
+    Tool-light by design: <code>ask_user</code> for the intake, <code>gh</code> (read-only) for the GitHub pull. That's it.
+  </p>
+</section>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <p class="foot-title">📅 Copilot Week in Review</p>
+    <p class="foot-tag">Your week, written for you.</p>
+    <p class="foot-links">
+      <a href="https://github.com/DUBSOpenHub/copilot-week-in-review">Source</a> ·
+      <a href="https://github.com/DUBSOpenHub/copilot-week-in-review/issues">Issues</a> ·
+      <a href="https://github.com/DUBSOpenHub/copilot-week-in-review/blob/main/LICENSE">MIT</a> ·
+      <a href="https://github.com/DUBSOpenHub/copilot-week-in-review/blob/main/SECURITY.md">Security</a>
+    </p>
+    <p class="foot-credit">
+      🐙 Built with 💜 in the <a href="https://github.com/features/copilot">GitHub Copilot app</a> by <a href="https://github.com/DUBSOpenHub">@DUBSOpenHub</a>.
+    </p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('button.copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const target = document.getElementById(btn.dataset.target);
+      if (!target) return;
+      try {
+        await navigator.clipboard.writeText(target.textContent.trim());
+        const original = btn.textContent;
+        btn.textContent = '✓ copied';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 1500);
+      } catch (_) {
+        btn.textContent = 'press ⌘C';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
