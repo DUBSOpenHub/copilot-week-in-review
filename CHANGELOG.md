@@ -7,7 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] — 2026-05-29
+
+A flow-and-docs release. Same agent, same install, but the user-facing
+experience is now an engaging, emoji-led four-step flow that runs
+identically in the GitHub Copilot app and the Copilot CLI. The repo's
+docs were realigned to match the live agent and to honestly describe
+the one optional `gh issue create` write at Step 4.
+
 ### Changed
+
+- **Agent flow rewritten as four explicit, identical-across-hosts steps.**
+  The intake is now sequenced — Step 1 source 📥 (📝 notes / 🐙 GitHub /
+  🎁 both), Step 2 audience 👥 (👔 manager / 🤝 team / 🪞 yourself),
+  Step 3 draft 🪄, Step 4 always offer to file as a GitHub issue 📬
+  (with a ready-to-run `gh issue create --body-file -` template).
+  Replaces the single-combined-message intake that branched on
+  `ask_user` availability. Prose-only flow now runs identically in the
+  Copilot app and the CLI — no host-conditional behavior. Emojis added
+  at each touchpoint to keep the experience engaging and fun. The
+  hint-skip shortcut still bypasses Steps 1+2 when both source and
+  audience are clear from the invocation. Verified end-to-end on a real
+  GitHub-pull / manager-audience run.
+
+- **Dropped all screenshot/file-attachment language from the agent.**
+  Custom-agent attachment support is host-dependent and currently absent
+  in parts of the Copilot app, so the prompt no longer mentions
+  screenshots, attachments, or paperclips anywhere. Source A is now
+  simply "I'll paste my notes" — paste text, GitHub URLs, brain dumps,
+  anything that fits in a chat message. CLI users who want richer input
+  already know how to reach for `@file` mentions or `gh` themselves.
 
 - **Docs aligned with the new four-step flow.** README, AGENTS.md, and
   SECURITY.md all referenced the old "two-question intake delivered in
@@ -21,47 +50,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `1`/`2`/`3` audience prompts. Continue-from-last reframed from
   fourth-source-option to conversational super-power.
 
-- **Dropped all screenshot/file-attachment language from the agent.**
-  Custom-agent attachment support is host-dependent and currently absent
-  in parts of the Copilot app, so the prompt no longer mentions
-  screenshots, attachments, or paperclips anywhere. Source A is now
-  simply "I'll paste my notes" — paste text, GitHub URLs, brain dumps,
-  anything that fits in a chat message. CLI users who want richer input
-  already know how to reach for `@file` mentions or `gh` themselves.
-  Replaces the two prior "screenshots if your host supports it" /
-  three-fallback iterations with one short, honest Notes section.
-
-- **Agent flow rewritten as four explicit, identical-across-hosts steps.**
-  The intake is now sequenced — Step 1 source (📝 notes / 🐙 GitHub /
-  🎁 both), Step 2 audience (👔 manager / 🤝 team / 🪞 yourself),
-  Step 3 draft, Step 4 always offer to file as a GitHub issue (with a
-  ready-to-run `gh issue create --body-file -` template). Replaces the
-  single-combined-message intake that branched on `ask_user`
-  availability. Same prose flow now runs identically in the GitHub
-  Copilot app and the Copilot CLI — no host-conditional behavior. Notes
-  mode explicitly accepts screenshots and attached files. Emojis added
-  at each touchpoint to keep the experience engaging and fun. The
-  hint-skip shortcut still bypasses Steps 1+2 when both source and
-  audience are clear from the invocation. Verified end-to-end on a real
-  GitHub-pull / manager-audience run. Agent file is 184 lines, at the
-  ~180 design ceiling.
-
 - **Docs refreshed to match the verified v1.1 behavior.** Added the
   hint-skip shortcut (`@week-in-review pull from my github for my
   manager`) to the README "30-second start" + "Use it" sections,
   AGENTS.md agent description, and both install scripts'
-  post-install hints. The 'three lines in' / 'two quick questions'
-  framing was leftover from the staged-turn intake; replaced with
-  the one-message-or-skipped reality. AGENTS.md overview no longer
-  says "Copilot CLI agent" — works in app or CLI.
-
-### Changed (earlier in [Unreleased])
+  post-install hints. AGENTS.md overview no longer says "Copilot CLI
+  agent" — works in app or CLI.
 
 - **Body length cap relaxed for GitHub-pull mode.** Was 250 words across
   the board, which overflowed silently on busy GitHub weeks (test run
   hit ~330 words). Now: 400 words when pulling from GitHub, still 250
   when working from pasted notes. Either way, cut filler before going
   over.
+
+### Locked-in design principles (updated for v1.2)
+
+- **Identical experience across hosts.** Same prose-based four-step
+  flow in the GitHub Copilot app and the Copilot CLI. No
+  host-conditional branches in the prompt.
+- **Tool-light, not tool-free.** Exactly one host tool, `gh`. Read-only
+  `search` / `issue list` for the GitHub-pull and continue-from-last
+  sources, plus one optional `gh issue create` write at Step 4 — only
+  on explicit user "yes" + a named repo, gated by the host's standard
+  tool-permission prompt. No `ask_user`, no other shell, no
+  third-party APIs.
 
 ## [1.1.0] — 2026-05-29
 
@@ -134,5 +146,6 @@ original "paste notes, get status" flow still works exactly the same.
 Initial public release. Single Copilot agent that turns messy weekly
 notes into a polished, GitHub-issue-ready status update.
 
+[1.2.0]: https://github.com/DUBSOpenHub/copilot-week-in-review/releases/tag/v1.2.0
 [1.1.0]: https://github.com/DUBSOpenHub/copilot-week-in-review/releases/tag/v1.1.0
 [1.0.0]: https://github.com/DUBSOpenHub/copilot-week-in-review/releases/tag/v1.0.0
