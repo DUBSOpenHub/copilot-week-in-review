@@ -26,13 +26,13 @@ This repo ships a single GitHub Copilot CLI agent — **week-in-review** — tha
 One-click (recommended):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/week-in-review/main/quickstart.sh | bash
+curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/main/quickstart.sh | bash
 ```
 
 Or via the Copilot CLI:
 
 ```
-/agents add DUBSOpenHub/week-in-review
+/agents add DUBSOpenHub/copilot-week-in-review
 ```
 
 ## Design Principles

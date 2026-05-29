@@ -1,4 +1,4 @@
-# Contributing to Week in Review
+# Contributing to Copilot Week in Review
 
 Thanks for your interest! This is a tiny project — one agent file plus an installer — so contributing is straightforward.
 

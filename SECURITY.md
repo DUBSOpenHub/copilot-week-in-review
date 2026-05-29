@@ -17,7 +17,7 @@ We take security seriously. If you discover a vulnerability in this project — 
 
 ### How to Report
 
-Use [GitHub's private vulnerability reporting](https://github.com/DUBSOpenHub/week-in-review/security/advisories/new) to submit a report directly on this repository.
+Use [GitHub's private vulnerability reporting](https://github.com/DUBSOpenHub/copilot-week-in-review/security/advisories/new) to submit a report directly on this repository.
 
 Include the following information:
 - Description of the vulnerability
@@ -52,4 +52,4 @@ Out of scope (please report to GitHub directly):
 
 This agent is intentionally tool-free. It does not read files, execute shell commands, or make network calls of its own. Any data the user pastes into a Copilot CLI session is subject to the [GitHub Copilot privacy terms](https://github.com/features/copilot) — nothing additional is sent anywhere by this agent.
 
-Thank you for helping keep Week in Review and its users safe.
+Thank you for helping keep Copilot Week in Review and its users safe.

@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Week in Review — one-click installer
+# Copilot Week in Review — one-click installer
 # Drops the agent into ~/.copilot/agents/. No git clone, no config.
 
 AGENT_DIR="$HOME/.copilot/agents"
-AGENT_URL="https://raw.githubusercontent.com/DUBSOpenHub/week-in-review/main/agents/week-in-review.agent.md"
+AGENT_URL="https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/main/agents/week-in-review.agent.md"
 AGENT_PATH="$AGENT_DIR/week-in-review.agent.md"
 
-echo "📅 Installing Week in Review..."
+echo "📅 Installing Copilot Week in Review..."
 echo ""
 
 mkdir -p "$AGENT_DIR"
@@ -22,7 +22,7 @@ curl -fsSL "$AGENT_URL" -o "$AGENT_PATH"
 echo "  ✅ Agent → $AGENT_PATH"
 
 echo ""
-echo "📅 Week in Review installed!"
+echo "📅 Copilot Week in Review installed!"
 echo ""
 echo "  Try it from any Copilot CLI session:"
 echo ""

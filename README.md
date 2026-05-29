@@ -1,6 +1,6 @@
-# 📅 Week in Review
+# 📅 Copilot Week in Review
 
-> **Week in Review is a GitHub Copilot agent that turns messy weekly notes into a polished, GitHub-issue-ready status update in seconds.**
+> **Copilot Week in Review is a GitHub Copilot agent that turns messy weekly notes into a polished, GitHub-issue-ready status update in seconds.**
 
 *Built using the [GitHub Copilot app](https://github.com/features/copilot) — chat, refine, ship.*
 
@@ -11,7 +11,7 @@
 **1. Install** — paste this in your terminal:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/week-in-review/main/quickstart.sh | bash
+curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/main/quickstart.sh | bash
 ```
 
 **2. Use it** — in any GitHub Copilot CLI session, type:
@@ -85,7 +85,7 @@ Shipped Checkout v2 behind a feature flag, cleared the flaky login tests, and ki
 **One-click install** — paste this in your terminal:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/week-in-review/main/quickstart.sh | bash
+curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/main/quickstart.sh | bash
 ```
 
 That's it. No git clone, no config, no API keys.
@@ -98,14 +98,14 @@ Then in any Copilot CLI session: `@week-in-review`
 **Via the GitHub Copilot CLI:**
 
 ```
-/agents add DUBSOpenHub/week-in-review
+/agents add DUBSOpenHub/copilot-week-in-review
 ```
 
 **Clone + install (if you want a local copy to remix):**
 
 ```bash
-git clone https://github.com/DUBSOpenHub/week-in-review.git
-cd week-in-review && ./install.sh
+git clone https://github.com/DUBSOpenHub/copilot-week-in-review.git
+cd copilot-week-in-review && ./install.sh
 ```
 
 </details>
@@ -152,9 +152,9 @@ If you want to remix this agent for your own team — change the sections, the t
 ## 📁 What's in this repo
 
 ```
-week-in-review/
+copilot-week-in-review/
 ├── agents/
-│   └── week-in-review.agent.md   ← the agent (Copilot CLI format)
+│   └── week-in-review.agent.md   ← the agent (Copilot CLI format, invoke as @week-in-review)
 ├── quickstart.sh                 ← one-click curl|bash installer
 ├── install.sh                    ← local installer (for git clone users)
 ├── CONTRIBUTING.md
