@@ -5,17 +5,13 @@ All notable changes to **Copilot Week in Review** will be documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] — 2026-05-29
+## [1.1.0] — 2026-05-29
 
-First stable release. The agent is mature enough that any future change
-that breaks the prompt format (intake flow, output structure, tool usage)
-will require a major version bump.
+A big feature-additive release. All changes are backward-compatible; the
+original "paste notes, get status" flow still works exactly the same.
 
 ### Added
 
-- **Two-question intake.** The agent asks just two things — *Source*
-  (paste notes / pull from GitHub / both / continue from last weekly
-  update) and *Audience* (manager / team / yourself) — then drafts.
 - **GitHub-pull source.** When chosen, the agent uses the local `gh`
   CLI to gather the last 7 days of the user's PRs, reviews, issues, and
   comments, then groups them by workstream and filters noise.
@@ -35,14 +31,32 @@ will require a major version bump.
   *"pull from github for my manager"*) and skips the intake entirely
   when both are clear. When it does need to ask, both questions go in
   one message — at most one Enter press before drafting starts.
-- **GitHub-issue-ready output.** Suggested title, suggested labels,
-  `##` headings, and `- [x]` / `- [ ]` task lists that render as
-  clickable checkboxes when pasted into an issue body.
-- **Dual-surface support.** Works identically in the GitHub Copilot
-  app and the Copilot CLI; one install location
+- **Dual-surface positioning.** README, AGENTS, and the installers now
+  call out that the agent runs identically in the GitHub Copilot app
+  *and* the Copilot CLI. One install location
   (`~/.copilot/agents/`).
-- **One-click installer.** `quickstart.sh` over `curl | bash`, no git
-  clone or config required.
+
+### Changed
+
+- **Audience label: `boss` → `manager`** across the agent prompt,
+  README, AGENTS, install scripts (19 strings across 7 files).
+- **Frontmatter `description`** rewritten to reflect the new
+  capabilities (notes OR GitHub activity, audience-tuned, ready for
+  GitHub issue, app or CLI).
+
+### Removed
+
+- A Next.js + shadcn/ui landing page was prototyped during this
+  release cycle and removed before tagging. The repo intentionally
+  ships as a single agent file + two installers + the docs that
+  explain it.
+
+### Security
+
+- Cleared the broken `homepageUrl` in repo metadata.
+- The transient `web/package-lock.json` carried a moderate `postcss`
+  XSS advisory (GHSA-qx2v-qp2m-jg93) for a few minutes; resolved when
+  the landing page was removed. The shipping agent has no JS/CSS deps.
 
 ### Locked-in design principles
 
@@ -57,10 +71,10 @@ will require a major version bump.
 - **No invention.** The agent never adds work the user didn't mention
   or that GitHub didn't surface.
 
-### Removed (during the lead-up to 1.0)
+## [1.0.0] — 2026-05-29 (earlier the same day)
 
-- A Next.js + shadcn/ui landing page was prototyped and removed before
-  release. The repo intentionally ships as a single agent file + two
-  installers + the docs that explain it.
+Initial public release. Single Copilot agent that turns messy weekly
+notes into a polished, GitHub-issue-ready status update.
 
+[1.1.0]: https://github.com/DUBSOpenHub/copilot-week-in-review/releases/tag/v1.1.0
 [1.0.0]: https://github.com/DUBSOpenHub/copilot-week-in-review/releases/tag/v1.0.0
