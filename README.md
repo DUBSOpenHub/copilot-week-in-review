@@ -20,12 +20,14 @@ curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/
 @week-in-review
 ```
 
-The agent then asks you two quick questions:
+The agent then walks you through four quick steps:
 
-1. **Source** — paste your own notes, pull from your GitHub activity, both, or continue from your last weekly update?
-2. **Audience** — your manager (formal, outcomes), your team (collaborative), or just yourself (raw log)?
+1. **Source** 📥 — paste your notes, pull from your last 7 days of GitHub activity, or both
+2. **Audience** 👥 — your manager (formal, outcomes), your team (collaborative), or just yourself (raw log)
+3. **Draft** 🪄 — you get a polished, GitHub-issue-ready markdown update back
+4. **File it?** 📬 — the agent then offers to file it as a GitHub issue for you (or you can paste it yourself)
 
-Answer those, and you get a polished update back. That's it.
+That's it.
 
 > ⚡ **Shortcut:** include both answers in your invocation and the agent skips the questions entirely:
 >
@@ -46,14 +48,15 @@ Answer those, and you get a polished update back. That's it.
 | 30 seconds of typing | 0 seconds of writing |
 | Notes only you understand | Markdown your team can ship from |
 
-- 🎯 **Two-question intake** — *source* (notes / GitHub pull / both / continue from last update) and *audience* (manager / team / yourself), so the same agent fits every weekly ritual. Both questions come in **one message**, or get skipped entirely if you put hints in your invocation.
+- 🎯 **Four-step flow** — source 📥 (notes / GitHub pull / both), audience 👥 (manager / team / yourself), polished draft 🪄, then an explicit offer to file it as a GitHub issue 📬. Same flow in the Copilot app and the CLI — never skips, never asks twice.
 - 🐙 **Auto-pulls from GitHub** — uses `gh` to gather your last 7 days of PRs, reviews, issues, and comments across your repos. Skips the noise (typo fixes, bot bumps). Falls back to notes mode gracefully if `gh` isn't installed or logged in.
-- 🔁 **Continue from your last update** — fourth source option that finds your previous weekly issue and diffs from there, so you never double-report wins
+- 🔁 **Continue from your last update** — ask in plain English (*"continue from my last weekly update in `myorg/team-updates`"*) and the agent finds your prior weekly issue and diffs from there, so you never double-report wins
 - 🎚️ **Audience-aware tone** — *Manager* leads with outcomes & impact; *Team* highlights handoffs & "what's next"; *Yourself* keeps your voice and small wins
+- 📬 **Files the issue for you** — at Step 4, just say "yes, file it in `myorg/team-updates`" and the agent runs `gh issue create` with the right labels and body
 - 📌 **GitHub-issue-ready by default** — `##` headings render, `- [x]` becomes clickable checkboxes your team can tick off as work ships
 - 🪶 **Tiny footprint** — one agent file, one installer, no servers, no config, no API keys
 - 🪄 **No repo required** — runs in the GitHub Copilot app *or* any Copilot CLI session, anywhere
-- 🔁 **Conversational refinement** — ask for "more casual", "punchier", or "open it as an issue in `myorg/updates`"
+- 🔁 **Conversational refinement** — ask for "more casual", "punchier", or "switch audience to team"
 
 ---
 
@@ -63,19 +66,19 @@ Answer those, and you get a polished update back. That's it.
 
 ```
 @week-in-review
-> Source? Pull from my GitHub activity
-> Audience? My manager
+> Where should I pull from? B (GitHub, last 7 days)
+> Who's this update for? 1 (manager)
 ```
 
-…and the agent runs `gh search` against your last 7 days, groups your PRs/issues by workstream, filters out the noise, and tunes the language for leadership. **One line in, a manager-ready update out — no notes required, no follow-up questions.**
+…and the agent runs `gh search` against your last 7 days, groups your PRs/issues by workstream, filters out the noise, and tunes the language for leadership. **Three messages in, a manager-ready update out — no notes required.**
 
 <details>
 <summary>✍️ Prefer pasting your own notes? Click for the notes-mode example</summary>
 
 ```
 @week-in-review
-> Source? Paste my own notes
-> Audience? My team
+> Where should I pull from? A (notes)
+> Who's this update for? 2 (team)
 
 shipped checkout v2 behind a feature flag, fixed two flaky login tests,
 reviewed 6 PRs, started API rate-limit design doc, oncall starts monday
@@ -171,12 +174,12 @@ copilot
 > @week-in-review
 ```
 
-Either way, the agent asks two quick questions in a single message — *or* skips them entirely if you include hints in your invocation (e.g. `@week-in-review continue from my last update, for my team`):
+Either way, the agent walks you through four quick steps — *or* skips Steps 1 & 2 entirely if you include hints in your invocation (e.g. `@week-in-review continue from my last update, for my team`):
 
 **With your own notes:**
 ```
-> Source? Paste my own notes
-> Audience? My team
+> Where should I pull from? A (notes)
+> Who's this update for? 2 (team)
 
 ran the design review, fixed two flaky tests, finished the Q3 plan draft,
 1:1s with three reports, prepping for the all-hands on Friday
@@ -184,21 +187,20 @@ ran the design review, fixed two flaky tests, finished the Q3 plan draft,
 
 **Pulled from your GitHub activity:**
 ```
-> Source? Pull from my GitHub activity
-> Audience? My manager
+> Where should I pull from? B (GitHub, last 7 days)
+> Who's this update for? 1 (manager)
 ```
 
 **Continuing from your last update (no double-reporting):**
 ```
-> Source? Continue from my last weekly update
-> Audience? My team
+@week-in-review continue from my last weekly update in myorg/team-updates, for my team
 ```
 
-You'll get a polished, issue-ready update back. Then:
+You'll get a polished, issue-ready update back. Then at **Step 4**, the agent offers to:
 
-- **Paste it** into a GitHub issue, Slack, or email
-- **Ask for tweaks** — "make it more casual", "more formal", "punchier", "switch the audience to my team"
-- **Have it filed** — "open this as an issue in `myorg/team-updates`"
+- **Paste it yourself** into a GitHub issue, Slack, or email
+- **Tweak first** — "make it more casual", "punchier", "switch audience to team"
+- **File it for you** — say "yes, in `myorg/team-updates`" and the agent runs `gh issue create` with the right title, labels, and body
 
 ---
 

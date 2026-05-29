@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Docs aligned with the new four-step flow.** README, AGENTS.md, and
+  SECURITY.md all referenced the old "two-question intake delivered in
+  one combined message" plus the `ask_user` tool, and SECURITY.md
+  incorrectly claimed "no writes are performed." Updated to reflect
+  reality: four explicit steps (source 📥 → audience 👥 → draft 🪄 →
+  offer to file as issue 📬), prose-only intake (never `ask_user`) for
+  cross-host consistency, and one optional `gh issue create` write at
+  Step 4 — only when the user explicitly says "yes, file it" and names
+  a repo. README UX examples updated to the new `A`/`B`/`C` source and
+  `1`/`2`/`3` audience prompts. Continue-from-last reframed from
+  fourth-source-option to conversational super-power.
+
 - **Dropped all screenshot/file-attachment language from the agent.**
   Custom-agent attachment support is host-dependent and currently absent
   in parts of the Copilot app, so the prompt no longer mentions

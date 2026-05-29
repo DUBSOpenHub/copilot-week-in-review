@@ -50,11 +50,14 @@ Out of scope (please report to GitHub directly):
 
 ## Privacy Notes
 
-This agent is intentionally **tool-light**. It uses exactly two host capabilities, and only when the user opts in:
+This agent is intentionally **tool-light**. It uses exactly one host capability, and only when the user opts in:
 
-- **`ask_user`** — for the 2-question intake (source + audience). Local to the Copilot session.
-- **`gh` (shell)** — only when the user selects the *"pull from my GitHub"* source. The agent runs read-only `gh search prs` and `gh search issues` against the GitHub API using the user's existing local `gh` authentication. No writes are performed. No other shell commands are executed. No third-party endpoints are contacted by this agent.
+- **`gh` (shell)** — used in two narrow ways, both at explicit user request:
+  - **Read-only**, when the user selects the *"pull from my GitHub"* source (or asks to continue from their last weekly update). The agent runs `gh search prs`, `gh search issues`, and `gh issue list` against the GitHub API using the user's existing local `gh` authentication.
+  - **One optional write**, at Step 4 ("Want me to file this as a GitHub issue?"). Only when the user explicitly says "yes, file it" and names a target repo, the agent runs `gh issue create --repo <owner/repo> --title <…> --label weekly-update --label status --body-file -` to create the weekly-update issue. The user sees the command before it runs and approves it via the host's standard tool-permission prompt.
 
-Any data the user pastes into a Copilot CLI session is subject to the [GitHub Copilot privacy terms](https://github.com/features/copilot). When GitHub-pull mode is used, the GitHub API calls flow under the user's own `gh` auth and are subject to standard [GitHub API terms](https://docs.github.com/en/rest). Nothing additional is sent anywhere by this agent.
+No other shell commands are executed. No third-party endpoints are contacted by this agent. The intake itself uses prose questions (never `ask_user`) so the flow is identical across the Copilot app and the CLI.
+
+Any data the user pastes into a Copilot session is subject to the [GitHub Copilot privacy terms](https://github.com/features/copilot). When GitHub-pull mode or the Step 4 file-as-issue write is used, the GitHub API calls flow under the user's own `gh` auth and are subject to standard [GitHub API terms](https://docs.github.com/en/rest). Nothing additional is sent anywhere by this agent.
 
 Thank you for helping keep Copilot Week in Review and its users safe.
