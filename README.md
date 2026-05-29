@@ -4,15 +4,6 @@
 
 *Built using the [GitHub Copilot app](https://github.com/features/copilot) — chat, refine, ship.*
 
-🌐 **[See the live demo site →](https://dubsopenhub.github.io/copilot-week-in-review/)**
-
-<!--
-  TODO: Drop a 5-second screen-recording GIF of the GitHub-pull flow right above this comment,
-  once it's recorded. Suggested markup:
-    <p align="center"><img src="docs/demo.gif" alt="Week in Review — pulling from GitHub in 5s" width="720"></p>
-  Tracked in: https://github.com/DUBSOpenHub/copilot-week-in-review/issues/2
--->
-
 ---
 
 ## 🏃 30-second start
@@ -224,12 +215,6 @@ If you want to remix this agent for your own team — change the sections, the t
 copilot-week-in-review/
 ├── agents/
 │   └── week-in-review.agent.md   ← the agent (Copilot agent format, invoke as @week-in-review in the app or CLI)
-├── web/                          ← Next.js + Tailwind v4 + shadcn/ui landing-page source
-│   ├── src/app/                    (page.tsx, layout.tsx, globals.css)
-│   ├── src/components/ui/          (shadcn primitives)
-│   └── next.config.ts              (static export, basePath=/copilot-week-in-review)
-├── docs/                         ← built static site served by GitHub Pages
-│                                   (regenerate with `cd web && npm run deploy`)
 ├── quickstart.sh                 ← one-click curl|bash installer
 ├── install.sh                    ← local installer (for git clone users)
 ├── AGENTS.md                     ← agent reference / design principles
@@ -239,7 +224,7 @@ copilot-week-in-review/
 └── README.md
 ```
 
-That's the whole project. One agent file, one landing page, two installers.
+That's the whole project. One agent file, two installers.
 
 ---
 
