@@ -5,6 +5,16 @@ All notable changes to **Copilot Week in Review** will be documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- **Body length cap relaxed for GitHub-pull mode.** Was 250 words across
+  the board, which overflowed silently on busy GitHub weeks (test run
+  hit ~330 words). Now: 400 words when pulling from GitHub, still 250
+  when working from pasted notes. Either way, cut filler before going
+  over.
+
 ## [1.1.0] — 2026-05-29
 
 A big feature-additive release. All changes are backward-compatible; the

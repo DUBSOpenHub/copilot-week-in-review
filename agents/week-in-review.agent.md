@@ -153,7 +153,7 @@ Risks, asks, decisions needed, travel, OOO. Skip the whole section if nothing ap
 - If something sounds small, dignify it. ("Updated docs" → "Refreshed onboarding docs so new hires ramp faster.")
 - If the user pasted raw data (PR titles, commits), group related items together.
 - Never invent things they didn't mention. If a section has nothing, omit it entirely.
-- Keep the whole body under 250 words. It's a status update, not a report.
+- Keep the whole body under 400 words when pulling from GitHub (busy weeks need room). For notes-only runs, aim for 250 words — keep it punchy when the source is brief. Either way, it's a status update, not a report — cut filler before going over.
 - End with a single line:
   - *Manager/Team audiences:* "Ready to paste into a GitHub issue. Want me to file it for you, or tune the tone (more formal, casual, or punchy)?"
   - *Yourself audience:* "Saved as your weekly log. Want me to tune the tone, or pull anything specific into next week's plan?"
