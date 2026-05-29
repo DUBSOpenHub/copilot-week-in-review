@@ -64,15 +64,33 @@ Shipped Checkout v2 behind a feature flag, cleared the flaky login tests, and ki
 
 ## ⚡ Install
 
-Three lines. No config. No keys.
+**One-click install** — paste this in your terminal:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/week-in-review/main/quickstart.sh | bash
+```
+
+That's it. No git clone, no config, no API keys.
+
+Then in any Copilot CLI session: `@week-in-review`
+
+<details>
+<summary>Other install options</summary>
+
+**Via the GitHub Copilot CLI:**
+
+```
+/agents add DUBSOpenHub/week-in-review
+```
+
+**Clone + install (if you want a local copy to remix):**
 
 ```bash
 git clone https://github.com/DUBSOpenHub/week-in-review.git
 cd week-in-review && ./install.sh
-# then in any Copilot CLI session: @week-in-review
 ```
 
-Or, from inside a Copilot CLI session: `/agents add DUBSOpenHub/week-in-review`
+</details>
 
 **Requirements:** GitHub Copilot CLI · active [Copilot subscription](https://github.com/features/copilot) · macOS, Linux, or WSL.
 **Privacy:** Your notes stay in your Copilot session. No telemetry, no analytics, nothing sent anywhere this agent doesn't already use.
@@ -119,13 +137,14 @@ If you want to remix this agent for your own team — change the sections, the t
 week-in-review/
 ├── agents/
 │   └── week-in-review.agent.md   ← the agent (Copilot CLI format)
-├── install.sh                    ← copies the agent to ~/.copilot/agents/
+├── quickstart.sh                 ← one-click curl|bash installer
+├── install.sh                    ← local installer (for git clone users)
 ├── CONTRIBUTING.md
 ├── LICENSE                       ← MIT
 └── README.md
 ```
 
-That's the whole project. One agent file, one installer.
+That's the whole project. One agent file, two installers.
 
 ---
 
