@@ -24,7 +24,7 @@ Then paste your messy weekly notes. That's it.
 
 ---
 
-## ✨ How it makes your week easier
+## ✨ What you get
 
 | 🧠 You write | 🤖 You get back |
 |---|---|
