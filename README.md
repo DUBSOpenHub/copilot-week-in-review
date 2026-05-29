@@ -32,7 +32,7 @@ curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/
 The agent then asks you two quick questions:
 
 1. **Source** — paste your own notes, pull from your GitHub activity, or both?
-2. **Audience** — your boss (formal, outcomes), your team (collaborative), or just yourself (raw log)?
+2. **Audience** — your manager (formal, outcomes), your team (collaborative), or just yourself (raw log)?
 
 Answer those, and you get a polished update back. That's it.
 
@@ -47,10 +47,10 @@ Answer those, and you get a polished update back. That's it.
 | 30 seconds of typing | 0 seconds of writing |
 | Notes only you understand | Markdown your team can ship from |
 
-- 🎯 **Two-question intake** — *source* (notes / GitHub pull / both) and *audience* (boss / team / yourself), so the same agent fits every weekly ritual
+- 🎯 **Two-question intake** — *source* (notes / GitHub pull / both) and *audience* (manager / team / yourself), so the same agent fits every weekly ritual
 - 🐙 **Auto-pulls from GitHub** — uses `gh` to gather your last 7 days of PRs, reviews, issues, and comments across your repos. Skips the noise (typo fixes, bot bumps). Falls back to notes mode gracefully if `gh` isn't installed or logged in.
 - 🔁 **Continue from your last update** — fourth source option that finds your previous weekly issue and diffs from there, so you never double-report wins
-- 🎚️ **Audience-aware tone** — *Boss* leads with outcomes & impact; *Team* highlights handoffs & "what's next"; *Yourself* keeps your voice and small wins
+- 🎚️ **Audience-aware tone** — *Manager* leads with outcomes & impact; *Team* highlights handoffs & "what's next"; *Yourself* keeps your voice and small wins
 - 📌 **GitHub-issue-ready by default** — `##` headings render, `- [x]` becomes clickable checkboxes your team can tick off as work ships
 - 🪶 **Tiny footprint** — one agent file, one installer, no servers, no config, no API keys
 - 🪄 **No repo required** — runs in the GitHub Copilot app *or* any Copilot CLI session, anywhere
@@ -65,10 +65,10 @@ Answer those, and you get a polished update back. That's it.
 ```
 @week-in-review
 > Source? Pull from my GitHub activity
-> Audience? My boss
+> Audience? My manager
 ```
 
-…and the agent runs `gh search` against your last 7 days, groups your PRs/issues by workstream, filters out the noise, and tunes the language for leadership. **Three lines in, a boss-ready update out — no notes required.**
+…and the agent runs `gh search` against your last 7 days, groups your PRs/issues by workstream, filters out the noise, and tunes the language for leadership. **Three lines in, a manager-ready update out — no notes required.**
 
 <details>
 <summary>✍️ Prefer pasting your own notes? Click for the notes-mode example</summary>
@@ -186,7 +186,7 @@ ran the design review, fixed two flaky tests, finished the Q3 plan draft,
 **Pulled from your GitHub activity:**
 ```
 > Source? Pull from my GitHub activity
-> Audience? My boss
+> Audience? My manager
 ```
 
 **Continuing from your last update (no double-reporting):**

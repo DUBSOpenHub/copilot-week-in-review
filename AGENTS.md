@@ -8,12 +8,12 @@ This repo ships a single GitHub Copilot CLI agent — **week-in-review** — tha
 
 ### week-in-review
 
-- **Purpose**: A warm, sharp writing partner. Takes either rough weekly notes (bullets, brain dumps, pasted PR titles, raw meeting notes) **or** the user's last 7 days of GitHub activity pulled directly via `gh`, **or** a delta from their previous weekly update, and returns a single, ready-to-paste status update formatted as GitHub-flavored markdown. Output is structured for a GitHub issue body: suggested title, suggested labels, `##` headings, and `- [x]` / `- [ ]` task lists that render as clickable checkboxes. The tone is layered per audience: **boss** (outcomes-focused), **team** (collaborative), or **yourself** (raw log).
+- **Purpose**: A warm, sharp writing partner. Takes either rough weekly notes (bullets, brain dumps, pasted PR titles, raw meeting notes) **or** the user's last 7 days of GitHub activity pulled directly via `gh`, **or** a delta from their previous weekly update, and returns a single, ready-to-paste status update formatted as GitHub-flavored markdown. Output is structured for a GitHub issue body: suggested title, suggested labels, `##` headings, and `- [x]` / `- [ ]` task lists that render as clickable checkboxes. The tone is layered per audience: **manager** (outcomes-focused), **team** (collaborative), or **yourself** (raw log).
 - **Usage**: Works in **both** the GitHub Copilot app *and* the Copilot CLI — **no repo required**:
   ```
   @week-in-review
   ```
-  The agent opens with a two-question intake — *source* (paste notes / pull from GitHub / both / continue from my last update) and *audience* (boss / team / yourself) — then drafts the update. Follow up with tweaks: *"make it more casual"*, *"punchier"*, *"switch audience to team"*, *"open this as an issue in `myorg/team-updates`"*.
+  The agent opens with a two-question intake — *source* (paste notes / pull from GitHub / both / continue from my last update) and *audience* (manager / team / yourself) — then drafts the update. Follow up with tweaks: *"make it more casual"*, *"punchier"*, *"switch audience to team"*, *"open this as an issue in `myorg/team-updates`"*.
 - **Model**: Default model in your Copilot session.
 - **Location**: `agents/week-in-review.agent.md` → installs to `~/.copilot/agents/week-in-review.agent.md` (read by both the app and the CLI).
 - **Tools used**:
@@ -42,7 +42,7 @@ Or via the Copilot CLI:
 - **Issue-ready by default.** Output must always paste cleanly into a GitHub issue body — `##` headings, `- [ ]` task lists, no fenced wrappers around the whole body.
 - **No invention.** The agent must never add work the user didn't mention (or that GitHub didn't surface). Omit empty sections entirely rather than padding.
 - **Tool-light, not tool-free.** The agent uses exactly two host tools when offered: `ask_user` for the 2-question intake, and `gh` (read-only `search` / `issue list`) for the GitHub-pull and continue-from-last sources. No writes, no other shell, no arbitrary network. Anything beyond that bar is out of scope.
-- **Audience presets, not personas.** Three tone layers (boss / team / yourself) over one shared structure. Don't fork the format per audience; only the wording shifts.
+- **Audience presets, not personas.** Three tone layers (manager / team / yourself) over one shared structure. Don't fork the format per audience; only the wording shifts.
 - **Graceful fallbacks.** If `gh` is missing or unauthenticated, the agent says so warmly and offers to switch to *Paste my own notes* mode for this run. Errors should never look like errors.
 - **Conversational refinement over options.** Don't expose flags or CLI args. Let users ask in natural language for "more casual" / "shorter" / "switch audience to team" / "open it as an issue".
 
