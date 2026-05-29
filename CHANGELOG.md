@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] — 2026-05-29
+
+Brand-style patch. Capitalizes "App" everywhere it refers to the
+GitHub Copilot App, across the agent prompt, README, AGENTS.md,
+CONTRIBUTING.md, SECURITY.md, install scripts, and prior CHANGELOG
+entries. No agent or behavior changes.
+
+### Changed
+
+- **"Copilot app" → "Copilot App"** (and related variants like
+  "the app and the CLI" → "the App and the CLI") across all repo
+  files: agent prompt, README, AGENTS.md, CONTRIBUTING.md,
+  SECURITY.md, `install.sh`, `quickstart.sh`, and historical
+  CHANGELOG entries. Brand consistency only — no semantic changes.
+
 ## [1.2.1] — 2026-05-29
 
 Docs-only patch release. No agent or behavior changes — just two README
@@ -37,7 +52,7 @@ tidies that landed shortly after v1.2.0.
 
 A flow-and-docs release. Same agent, same install, but the user-facing
 experience is now an engaging, emoji-led four-step flow that runs
-identically in the GitHub Copilot app and the Copilot CLI. The repo's
+identically in the GitHub Copilot App and the Copilot CLI. The repo's
 docs were realigned to match the live agent and to honestly describe
 the one optional `gh issue create` write at Step 4.
 
@@ -50,7 +65,7 @@ the one optional `gh issue create` write at Step 4.
   (with a ready-to-run `gh issue create --body-file -` template).
   Replaces the single-combined-message intake that branched on
   `ask_user` availability. Prose-only flow now runs identically in the
-  Copilot app and the CLI — no host-conditional behavior. Emojis added
+  Copilot App and the CLI — no host-conditional behavior. Emojis added
   at each touchpoint to keep the experience engaging and fun. The
   hint-skip shortcut still bypasses Steps 1+2 when both source and
   audience are clear from the invocation. Verified end-to-end on a real
@@ -58,7 +73,7 @@ the one optional `gh issue create` write at Step 4.
 
 - **Dropped all screenshot/file-attachment language from the agent.**
   Custom-agent attachment support is host-dependent and currently absent
-  in parts of the Copilot app, so the prompt no longer mentions
+  in parts of the Copilot App, so the prompt no longer mentions
   screenshots, attachments, or paperclips anywhere. Source A is now
   simply "I'll paste my notes" — paste text, GitHub URLs, brain dumps,
   anything that fits in a chat message. CLI users who want richer input
@@ -81,7 +96,7 @@ the one optional `gh issue create` write at Step 4.
   manager`) to the README "30-second start" + "Use it" sections,
   AGENTS.md agent description, and both install scripts'
   post-install hints. AGENTS.md overview no longer says "Copilot CLI
-  agent" — works in app or CLI.
+  agent" — works in App or CLI.
 
 - **Body length cap relaxed for GitHub-pull mode.** Was 250 words across
   the board, which overflowed silently on busy GitHub weeks (test run
@@ -92,7 +107,7 @@ the one optional `gh issue create` write at Step 4.
 ### Locked-in design principles (updated for v1.2)
 
 - **Identical experience across hosts.** Same prose-based four-step
-  flow in the GitHub Copilot app and the Copilot CLI. No
+  flow in the GitHub Copilot App and the Copilot CLI. No
   host-conditional branches in the prompt.
 - **Tool-light, not tool-free.** Exactly one host tool, `gh`. Read-only
   `search` / `issue list` for the GitHub-pull and continue-from-last
@@ -128,7 +143,7 @@ original "paste notes, get status" flow still works exactly the same.
   when both are clear. When it does need to ask, both questions go in
   one message — at most one Enter press before drafting starts.
 - **Dual-surface positioning.** README, AGENTS, and the installers now
-  call out that the agent runs identically in the GitHub Copilot app
+  call out that the agent runs identically in the GitHub Copilot App
   *and* the Copilot CLI. One install location
   (`~/.copilot/agents/`).
 
@@ -138,7 +153,7 @@ original "paste notes, get status" flow still works exactly the same.
   README, AGENTS, install scripts (19 strings across 7 files).
 - **Frontmatter `description`** rewritten to reflect the new
   capabilities (notes OR GitHub activity, audience-tuned, ready for
-  GitHub issue, app or CLI).
+  GitHub issue, App or CLI).
 
 ### Removed
 
@@ -172,6 +187,7 @@ original "paste notes, get status" flow still works exactly the same.
 Initial public release. Single Copilot agent that turns messy weekly
 notes into a polished, GitHub-issue-ready status update.
 
+[1.2.2]: https://github.com/DUBSOpenHub/copilot-week-in-review/releases/tag/v1.2.2
 [1.2.1]: https://github.com/DUBSOpenHub/copilot-week-in-review/releases/tag/v1.2.1
 [1.2.0]: https://github.com/DUBSOpenHub/copilot-week-in-review/releases/tag/v1.2.0
 [1.1.0]: https://github.com/DUBSOpenHub/copilot-week-in-review/releases/tag/v1.1.0

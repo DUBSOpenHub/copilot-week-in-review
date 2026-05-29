@@ -56,7 +56,7 @@ This agent is intentionally **tool-light**. It uses exactly one host capability,
   - **Read-only**, when the user selects the *"pull from my GitHub"* source (or asks to continue from their last weekly update). The agent runs `gh search prs`, `gh search issues`, and `gh issue list` against the GitHub API using the user's existing local `gh` authentication.
   - **One optional write**, at Step 4 ("Want me to file this as a GitHub issue?"). Only when the user explicitly says "yes, file it" and names a target repo, the agent runs `gh issue create --repo <owner/repo> --title <…> --label weekly-update --label status --body-file -` to create the weekly-update issue. The user sees the command before it runs and approves it via the host's standard tool-permission prompt.
 
-No other shell commands are executed. No third-party endpoints are contacted by this agent. The intake itself uses prose questions (never `ask_user`) so the flow is identical across the Copilot app and the CLI.
+No other shell commands are executed. No third-party endpoints are contacted by this agent. The intake itself uses prose questions (never `ask_user`) so the flow is identical across the Copilot App and the CLI.
 
 Any data the user pastes into a Copilot session is subject to the [GitHub Copilot privacy terms](https://github.com/features/copilot). When GitHub-pull mode or the Step 4 file-as-issue write is used, the GitHub API calls flow under the user's own `gh` auth and are subject to standard [GitHub API terms](https://docs.github.com/en/rest). Nothing additional is sent anywhere by this agent.
 

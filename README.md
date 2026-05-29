@@ -1,8 +1,8 @@
 # 📅 Copilot Week in Review
 
-> **Copilot Week in Review is a GitHub Copilot agent that turns your week — whether messy notes or raw GitHub activity — into a polished, audience-tuned, GitHub-issue-ready status update in seconds. Works in the GitHub Copilot app *or* the Copilot CLI.**
+> **Copilot Week in Review is a GitHub Copilot agent that turns your week — whether messy notes or raw GitHub activity — into a polished, audience-tuned, GitHub-issue-ready status update in seconds. Works in the GitHub Copilot App *or* the Copilot CLI.**
 
-*Built using the [GitHub Copilot app](https://github.com/features/copilot) — chat, refine, ship.*
+*Built using the [GitHub Copilot App](https://github.com/features/copilot) — chat, refine, ship.*
 
 ---
 
@@ -14,7 +14,7 @@
 curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/main/quickstart.sh | bash
 ```
 
-**2. Use it** — in either the **GitHub Copilot app** *or* a **Copilot CLI** session, type:
+**2. Use it** — in either the **GitHub Copilot App** *or* a **Copilot CLI** session, type:
 
 ```
 @week-in-review
@@ -48,14 +48,14 @@ That's it.
 | 30 seconds of typing | 0 seconds of writing |
 | Notes only you understand | Markdown your team can ship from |
 
-- 🎯 **Four-step flow** — source 📥 (notes / GitHub pull / both), audience 👥 (manager / team / yourself), polished draft 🪄, then an explicit offer to file it as a GitHub issue 📬. Same flow in the Copilot app and the CLI — never skips, never asks twice.
+- 🎯 **Four-step flow** — source 📥 (notes / GitHub pull / both), audience 👥 (manager / team / yourself), polished draft 🪄, then an explicit offer to file it as a GitHub issue 📬. Same flow in the Copilot App and the CLI — never skips, never asks twice.
 - 🐙 **Auto-pulls from GitHub** — uses `gh` to gather your last 7 days of PRs, reviews, issues, and comments across your repos. Skips the noise (typo fixes, bot bumps). Falls back to notes mode gracefully if `gh` isn't installed or logged in.
 - 🔁 **Continue from your last update** — ask in plain English (*"continue from my last weekly update in `myorg/team-updates`"*) and the agent finds your prior weekly issue and diffs from there, so you never double-report wins
 - 🎚️ **Audience-aware tone** — *Manager* leads with outcomes & impact; *Team* highlights handoffs & "what's next"; *Yourself* keeps your voice and small wins
 - 📬 **Files the issue for you** — at Step 4, just say "yes, file it in `myorg/team-updates`" and the agent runs `gh issue create` with the right labels and body
 - 📌 **GitHub-issue-ready by default** — `##` headings render, `- [x]` becomes clickable checkboxes your team can tick off as work ships
 - 🪶 **Tiny footprint** — one agent file, one installer, no servers, no config, no API keys
-- 🪄 **No repo required** — runs in the GitHub Copilot app *or* any Copilot CLI session, anywhere
+- 🪄 **No repo required** — runs in the GitHub Copilot App *or* any Copilot CLI session, anywhere
 - 🔁 **Conversational refinement** — ask for "more casual", "punchier", or "switch audience to team"
 
 ---
@@ -107,7 +107,7 @@ curl -fsSL https://raw.githubusercontent.com/DUBSOpenHub/copilot-week-in-review/
 
 That's it. No git clone, no config, no API keys.
 
-Then in the **GitHub Copilot app** or any **Copilot CLI** session: `@week-in-review`
+Then in the **GitHub Copilot App** or any **Copilot CLI** session: `@week-in-review`
 
 <details>
 <summary>Other install options</summary>
@@ -127,7 +127,7 @@ cd copilot-week-in-review && ./install.sh
 
 </details>
 
-**Requirements:** GitHub Copilot (app or CLI) · active [Copilot subscription](https://github.com/features/copilot) · macOS, Linux, or WSL. The optional *"pull from my GitHub"* mode needs the [`gh` CLI](https://cli.github.com/) authenticated as you (`gh auth login`); if it's missing, the agent will detect that and offer to fall back to notes mode.
+**Requirements:** GitHub Copilot (App or CLI) · active [Copilot subscription](https://github.com/features/copilot) · macOS, Linux, or WSL. The optional *"pull from my GitHub"* mode needs the [`gh` CLI](https://cli.github.com/) authenticated as you (`gh auth login`); if it's missing, the agent will detect that and offer to fall back to notes mode.
 **Privacy:** Your notes stay in your Copilot session. When you pick the *"pull from my GitHub"* mode, the agent runs `gh` locally as you — nothing leaves your machine except the GitHub API calls `gh` already makes on your behalf. No telemetry, no analytics.
 
 ---
@@ -136,7 +136,7 @@ cd copilot-week-in-review && ./install.sh
 
 Works the same way in either surface — **no repo required**:
 
-### In the GitHub Copilot app
+### In the GitHub Copilot App
 
 Open Copilot. Type:
 
@@ -181,9 +181,9 @@ You'll get a polished, issue-ready update back. Then at **Step 4**, the agent of
 
 ---
 
-## 🏗️ Built with the GitHub Copilot app
+## 🏗️ Built with the GitHub Copilot App
 
-This whole project — agent prompt, installer, README, repo structure — was built in **conversation** inside the [GitHub Copilot app](https://github.com/features/copilot):
+This whole project — agent prompt, installer, README, repo structure — was built in **conversation** inside the [GitHub Copilot App](https://github.com/features/copilot):
 
 1. Started with a one-line idea: *"turn my messy weekly notes into a polished update"*
 2. Iterated on the agent's output format live (Slack-style → GitHub-issue-style)
@@ -192,7 +192,7 @@ This whole project — agent prompt, installer, README, repo structure — was b
 
 No frameworks, no boilerplate generators, no setup. Just chat → refine → ship.
 
-If you want to remix this agent for your own team — change the sections, the tone, the labels — open `agents/week-in-review.agent.md` in the Copilot app and ask it to make the changes. That's how it was built; that's the cleanest way to evolve it.
+If you want to remix this agent for your own team — change the sections, the tone, the labels — open `agents/week-in-review.agent.md` in the Copilot App and ask it to make the changes. That's how it was built; that's the cleanest way to evolve it.
 
 ---
 
@@ -201,7 +201,7 @@ If you want to remix this agent for your own team — change the sections, the t
 ```
 copilot-week-in-review/
 ├── agents/
-│   └── week-in-review.agent.md   ← the agent (Copilot agent format, invoke as @week-in-review in the app or CLI)
+│   └── week-in-review.agent.md   ← the agent (Copilot agent format, invoke as @week-in-review in the App or CLI)
 ├── quickstart.sh                 ← one-click curl|bash installer
 ├── install.sh                    ← local installer (for git clone users)
 ├── AGENTS.md                     ← agent reference / design principles
@@ -227,6 +227,6 @@ PRs welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). The agent prompt is intenti
 
 ---
 
-## 🐙 Created with 💜 by [@DUBSOpenHub](https://github.com/DUBSOpenHub) with the [GitHub Copilot app](https://github.com/features/copilot).
+## 🐙 Created with 💜 by [@DUBSOpenHub](https://github.com/DUBSOpenHub) with the [GitHub Copilot App](https://github.com/features/copilot).
 
 Let's build! 🚀✨

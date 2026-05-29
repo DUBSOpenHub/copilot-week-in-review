@@ -4,7 +4,7 @@ Thanks for your interest! This is a tiny project — one agent file plus an inst
 
 ## What lives where
 
-- `agents/week-in-review.agent.md` — the agent itself (Copilot agent format: YAML frontmatter + markdown instructions). Used by both the GitHub Copilot app and the Copilot CLI.
+- `agents/week-in-review.agent.md` — the agent itself (Copilot agent format: YAML frontmatter + markdown instructions). Used by both the GitHub Copilot App and the Copilot CLI.
 - `install.sh` / `quickstart.sh` — copy the agent into `~/.copilot/agents/`.
 - `README.md` — install instructions, examples, the story behind the project.
 - `AGENTS.md` — agent reference, design principles, tool usage.
@@ -27,4 +27,4 @@ The agent prompt should stay:
 
 ## Built with GitHub Copilot
 
-This project was scaffolded inside the GitHub Copilot app, in conversation. If you're iterating on the agent prompt, doing it the same way (chat with Copilot, refine, paste back) is the fastest workflow.
+This project was scaffolded inside the GitHub Copilot App, in conversation. If you're iterating on the agent prompt, doing it the same way (chat with Copilot, refine, paste back) is the fastest workflow.
