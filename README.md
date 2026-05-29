@@ -137,4 +137,10 @@ PRs welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). The agent prompt is intenti
 
 ## 📜 License
 
-[MIT](LICENSE) © DUBSOpenHub
+[MIT](LICENSE) — use it, fork it, remix it for your team. 📅
+
+---
+
+## 🐙 Created with 💜 by [@DUBSOpenHub](https://github.com/DUBSOpenHub) with the [GitHub Copilot app](https://github.com/features/copilot).
+
+Let's build! 🚀✨
