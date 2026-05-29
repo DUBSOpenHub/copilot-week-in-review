@@ -9,6 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Agent flow rewritten as four explicit, identical-across-hosts steps.**
+  The intake is now sequenced — Step 1 source (📝 notes / 🐙 GitHub /
+  🎁 both), Step 2 audience (👔 manager / 🤝 team / 🪞 yourself),
+  Step 3 draft, Step 4 always offer to file as a GitHub issue (with a
+  ready-to-run `gh issue create --body-file -` template). Replaces the
+  single-combined-message intake that branched on `ask_user`
+  availability. Same prose flow now runs identically in the GitHub
+  Copilot app and the Copilot CLI — no host-conditional behavior. Notes
+  mode explicitly accepts screenshots and attached files. Emojis added
+  at each touchpoint to keep the experience engaging and fun. The
+  hint-skip shortcut still bypasses Steps 1+2 when both source and
+  audience are clear from the invocation. Verified end-to-end on a real
+  GitHub-pull / manager-audience run. Agent file is 184 lines, at the
+  ~180 design ceiling.
+
 - **Docs refreshed to match the verified v1.1 behavior.** Added the
   hint-skip shortcut (`@week-in-review pull from my github for my
   manager`) to the README "30-second start" + "Use it" sections,
