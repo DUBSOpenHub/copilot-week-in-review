@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Notes-mode wording made truthful about host attachment limits.**
+  Step 1's "notes/screenshots/files" option no longer over-promises;
+  it now reads "Notes (paste text; screenshots & files too, if your
+  host app supports attachments)." The Notes-mode section gained an
+  explicit three-fallback flow for when the host doesn't expose an
+  attachment affordance (currently the case in parts of the Copilot
+  app for custom-agent sessions): (1) describe what's on screen in a
+  sentence, (2) paste a GitHub URL (issue / PR / gist / comment),
+  (3) paste the relevant text directly. Frames it as a host-UI limit
+  the agent can't override — no false promises, no dead ends.
+
 - **Agent flow rewritten as four explicit, identical-across-hosts steps.**
   The intake is now sequenced — Step 1 source (📝 notes / 🐙 GitHub /
   🎁 both), Step 2 audience (👔 manager / 🤝 team / 🪞 yourself),
