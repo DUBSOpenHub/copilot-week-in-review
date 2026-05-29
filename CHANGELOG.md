@@ -9,16 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **Notes-mode wording made truthful about host attachment limits.**
-  Step 1's "notes/screenshots/files" option no longer over-promises;
-  it now reads "Notes (paste text; screenshots & files too, if your
-  host app supports attachments)." The Notes-mode section gained an
-  explicit three-fallback flow for when the host doesn't expose an
-  attachment affordance (currently the case in parts of the Copilot
-  app for custom-agent sessions): (1) describe what's on screen in a
-  sentence, (2) paste a GitHub URL (issue / PR / gist / comment),
-  (3) paste the relevant text directly. Frames it as a host-UI limit
-  the agent can't override — no false promises, no dead ends.
+- **Dropped all screenshot/file-attachment language from the agent.**
+  Custom-agent attachment support is host-dependent and currently absent
+  in parts of the Copilot app, so the prompt no longer mentions
+  screenshots, attachments, or paperclips anywhere. Source A is now
+  simply "I'll paste my notes" — paste text, GitHub URLs, brain dumps,
+  anything that fits in a chat message. CLI users who want richer input
+  already know how to reach for `@file` mentions or `gh` themselves.
+  Replaces the two prior "screenshots if your host supports it" /
+  three-fallback iterations with one short, honest Notes section.
 
 - **Agent flow rewritten as four explicit, identical-across-hosts steps.**
   The intake is now sequenced — Step 1 source (📝 notes / 🐙 GitHub /
