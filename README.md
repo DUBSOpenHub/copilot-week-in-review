@@ -1,8 +1,8 @@
 # 📅 Week in Review
 
-> Turn messy weekly notes into a polished, GitHub-issue-ready status update — in seconds.
+> **Week in Review is a GitHub Copilot agent that turns messy weekly notes into a polished, GitHub-issue-ready status update in seconds.**
 
-**Built using the [GitHub Copilot app](https://github.com/features/copilot) — chat, refine, ship.**
+*Built using the [GitHub Copilot app](https://github.com/features/copilot) — chat, refine, ship.*
 
 ---
 
