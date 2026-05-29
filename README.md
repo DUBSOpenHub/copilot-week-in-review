@@ -26,13 +26,13 @@
 ### ✍️ You paste this
 
 ```
-ran soss session 4 retro, ai enablement deck, shipped new agent in copilot app,
-prep for openclaw video shoot tuesday in SF with maintainers
+shipped checkout v2 behind a feature flag, fixed two flaky login tests,
+reviewed 6 PRs, started API rate-limit design doc, oncall starts monday
 ```
 
 ### 📬 You get this back — ready to paste into a GitHub issue
 
-**Title:** Week in Review — May 25–29, 2026
+**Title:** Week in Review — Mar 17–21, 2026
 
 **Labels:** `weekly-update` `status`
 
@@ -40,23 +40,23 @@ prep for openclaw video shoot tuesday in SF with maintainers
 
 ## TL;DR
 
-Closed out SOSS Fund Session 4, shipped a new Copilot agent, and locked in logistics for next week's OpenClaw shoot in SF.
+Shipped Checkout v2 behind a feature flag, cleared the flaky login tests, and kicked off the API rate-limit design doc. Oncall starts Monday.
 
 ## ✅ Shipped this week
 
-- [x] **SOSS Fund — Session 4 retrospective** — ran end-to-end; takeaways captured for Session 5.
-- [x] **New agent live in the GitHub Copilot app** — additional capability now in users' hands.
-- [x] **AI enablement deck** — meaningful progress on narrative + structure.
+- [x] **Checkout v2 — live behind a feature flag** — ready for staged rollout next week.
+- [x] **Fixed two flaky login tests** — login suite back to green.
+- [x] **Reviewed 6 PRs** — kept the team unblocked.
 
 ## 🚧 In progress
 
-- [ ] **AI enablement deck** — refining content and visuals ahead of delivery.
-- [ ] **OpenClaw video shoot prep** — maintainer coordination, schedule, logistics.
+- [ ] **API rate-limit design doc** — first draft underway, ready for review next week.
 
 ## 🔭 Next week
 
-- [ ] ✈️ **OpenClaw video shoot — Tue, June 3, San Francisco.** Filming with maintainers.
-- [ ] Fold SOSS Session 4 retro takeaways into Session 5 planning.
+- [ ] 🚨 **Oncall rotation starts Monday.** Slower response on non-urgent items.
+- [ ] Begin staged rollout of Checkout v2.
+- [ ] Circulate the rate-limit design doc for team review.
 
 **That's it.** Paste it into an issue. Click the boxes as work ships. Done.
 
