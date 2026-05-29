@@ -6,18 +6,31 @@
 
 ---
 
-## What it does
+## ✨ Why you'll use it
 
-You paste rough notes about your week. You get back a clean, structured status update — formatted as **GitHub-flavored markdown with clickable task lists**, ready to drop into an issue, a Slack message, or an email.
+| 🧠 You write | 🤖 You get back |
+|---|---|
+| Half-sentence brain dump | A polished status update |
+| 30 seconds of typing | 0 seconds of writing |
+| Notes only you understand | Markdown your team can ship from |
 
-### Before
+- 📌 **GitHub-issue-ready by default** — `##` headings render, `- [x]` becomes clickable checkboxes your team can tick off as work ships
+- 🪶 **Tiny footprint** — one agent file, one installer, no servers, no config, no API keys
+- 🪄 **No repo required** — runs from any GitHub Copilot CLI session, anywhere
+- 🔁 **Conversational refinement** — ask for "more casual", "punchier", or "open it as an issue in `myorg/updates`"
+
+---
+
+## 👀 See it in action
+
+### ✍️ You paste this
 
 ```
 ran soss session 4 retro, ai enablement deck, shipped new agent in copilot app,
 prep for openclaw video shoot tuesday in SF with maintainers
 ```
 
-### After
+### 📬 You get this back — ready to paste into a GitHub issue
 
 **Title:** Week in Review — May 25–29, 2026
 
@@ -45,23 +58,37 @@ Closed out SOSS Fund Session 4, shipped a new Copilot agent, and locked in logis
 - [ ] ✈️ **OpenClaw video shoot — Tue, June 3, San Francisco.** Filming with maintainers.
 - [ ] Fold SOSS Session 4 retro takeaways into Session 5 planning.
 
+**That's it.** Paste it into an issue. Click the boxes as work ships. Done.
+
 ---
 
-## 🚀 Install
+## ⚡ How simple
+
+Three lines. No config. No keys.
 
 ```bash
 git clone https://github.com/DUBSOpenHub/week-in-review.git
-cd week-in-review
-./install.sh
+cd week-in-review && ./install.sh
+# then in any Copilot CLI session: @week-in-review
 ```
 
-The installer drops one file into `~/.copilot/agents/`. That's it.
+---
 
-### Or install directly via the GitHub Copilot CLI
+## 🚀 Install options
+
+**One-line install** (already shown above):
+
+```bash
+git clone https://github.com/DUBSOpenHub/week-in-review.git && cd week-in-review && ./install.sh
+```
+
+**Or via the GitHub Copilot CLI:**
 
 ```
 /agents add DUBSOpenHub/week-in-review
 ```
+
+The installer drops a single file into `~/.copilot/agents/`. That's it.
 
 ---
 
