@@ -224,9 +224,12 @@ If you want to remix this agent for your own team — change the sections, the t
 copilot-week-in-review/
 ├── agents/
 │   └── week-in-review.agent.md   ← the agent (Copilot agent format, invoke as @week-in-review in the app or CLI)
-├── docs/
-│   ├── index.html                ← landing page (https://dubsopenhub.github.io/copilot-week-in-review/)
-│   └── style.css
+├── web/                          ← Next.js + Tailwind v4 + shadcn/ui landing-page source
+│   ├── src/app/                    (page.tsx, layout.tsx, globals.css)
+│   ├── src/components/ui/          (shadcn primitives)
+│   └── next.config.ts              (static export, basePath=/copilot-week-in-review)
+├── docs/                         ← built static site served by GitHub Pages
+│                                   (regenerate with `cd web && npm run deploy`)
 ├── quickstart.sh                 ← one-click curl|bash installer
 ├── install.sh                    ← local installer (for git clone users)
 ├── AGENTS.md                     ← agent reference / design principles
